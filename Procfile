@@ -1,1 +1,1 @@
-web: java -jar target/pix-1.0-SNAPSHOT-jar-with-dependencies.jar -Dhttp.port=8080
+web: java -jar target/pix-1.0-SNAPSHOT-jar-with-dependencies.jar -Dhttp.port=$PORT

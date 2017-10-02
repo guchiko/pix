@@ -27,12 +27,16 @@ public class Main {
         HandlerList handlers = new HandlerList();
         handlers.setHandlers(new Handler[]{resource_handler, context});
 
-        Server server = new Server(3000);
+        int port = 8080;
+        if(args.length>=1){
+            port = Integer.parseInt(args[0].split("=")[1]);
+        }
+        Server server = new Server(port);
         System.out.println(Arrays.toString(args));
         server.setHandler(handlers);
 
         server.start();
-        System.out.println("Server started");
+        System.out.println("Server started at "+port);
         server.join();
     }
 }
