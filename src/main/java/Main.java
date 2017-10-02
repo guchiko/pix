@@ -5,12 +5,16 @@ import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
+
+import java.util.Arrays;
+
 /**
  * Created by kl on 02.10.2017.
  * :3
  */
 public class Main {
     public static void main(String[] args) throws Exception{
+
         AllRequestsServlet allRequestsServlet = new AllRequestsServlet();
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
@@ -23,7 +27,8 @@ public class Main {
         HandlerList handlers = new HandlerList();
         handlers.setHandlers(new Handler[]{resource_handler, context});
 
-        Server server = new Server(8080);
+        Server server = new Server(3000);
+        System.out.println(Arrays.toString(args));
         server.setHandler(handlers);
 
         server.start();
